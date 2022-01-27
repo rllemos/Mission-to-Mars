@@ -38,7 +38,7 @@ The Mars hemisphere webpage
 ### Deliverable 3:
 > 1. Use the Bootstrap 3 grid system (Links to an external site.) examples to update your index.html file so your website is mobile-responsive. Use the DevTools to test the responsiveness of your website.
 > 2. Add two other Bootstrap 3 components from this list (Links to an external site.). Examples include:
-* Styling the "Scrape New Data" button.
-* Customizing the facts table.
-* Adding the hemisphere images as thumbnails, like the image below.
+  * Styling the "Scrape New Data" button.
+  * Customizing the facts table.
+  * Adding the hemisphere images as thumbnails, like the image below.
 
