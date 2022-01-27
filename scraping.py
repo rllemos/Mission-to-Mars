@@ -9,7 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 def scrape_all():
     # Initiate headless driver for deployment
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=True)
+    browser = Browser('chrome', **executable_path, headless=False)
 
     news_title, news_paragraph = mars_news(browser)
 
@@ -19,6 +19,7 @@ def scrape_all():
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
+        "hemispheres": hemispheres(browser),
         "last_modified": dt.datetime.now()
     }
 
@@ -26,7 +27,7 @@ def scrape_all():
     browser.quit()
     return data
 
-
+# function title and paragraph
 def mars_news(browser):
 
     # Scrape Mars News
@@ -96,6 +97,40 @@ def mars_facts():
 
     # Convert dataframe into HTML format, add bootstrap
     return df.to_html(classes="table table-striped")
+
+def hemispheres(browser):
+    # Visit the USGS Astrogeology Science Center Site
+    url = 'https://marshemispheres.com/'
+    browser.visit(url)
+
+    hemisphere_image_urls = []
+
+    # Get a List of All the Hemisphere
+    links = browser.find_by_css('a.product-item img')
+    for item in range(len(links)):
+        hemisphere = {}
+        
+        # Find Element on Each Loop to Avoid a Stale Element Exception
+        browser.find_by_css('a.product-item img')[item].click()
+        
+        # Find Sample Image Anchor Tag & Extract <href>
+        sample_element = browser.find_link_by_text('Sample').first
+        hemisphere['img_url'] = sample_element['href']
+        
+        # Get Hemisphere Title
+        hemisphere['title'] = browser.find_by_css('h2.title').text
+        
+        # Append Hemisphere Object to List
+        hemisphere_image_urls.append(hemisphere)
+        
+        # Navigate Backwards
+        browser.back()
+    return hemisphere_image_urls
+
+
+
+
+
 
 if __name__ == "__main__":
 
