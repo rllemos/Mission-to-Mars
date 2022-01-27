@@ -22,9 +22,8 @@ The Mars hemisphere webpage
 7. Save the hemisphere image title as the value for the title key that will be stored in the dictionary you created from the Hint.
 8. Before getting the next image URL and title, add the dictionary with the image URL string and the hemisphere image title to the list you created in Step 2.
 9. Print the list of dictionary items. Your list should look like the following image:
-<!-- The dictionary that holds the image URL strings and the hemisphere titles for each hemisphere.
 
-After you have confirmed that you have the image URLs and titles for all four hemisphere images, quit the browser by executing Step 5. -->
+![](Images/Screen Shot 2022-01-27 at 15.18.50.png)
 
 ### Deliverable 2:
 
@@ -35,6 +34,7 @@ After you have confirmed that you have the image URLs and titles for all four he
 5. If you’d like a hint on coding the syntax for rendering Mongo database objects in your index.html file, that’s totally okay. If not, that’s great too. You can always revisit this later if you change your mind.
 6. Run the app.py file, open the index.html file, and click the "Scrape New Data" button.
 
+![](Images/Screen Shot 2022-01-27 at 15.19.52.png)
 ### Deliverable 3:
 > 1. Use the Bootstrap 3 grid system (Links to an external site.) examples to update your index.html file so your website is mobile-responsive. Use the DevTools to test the responsiveness of your website.
 > 2. Add two other Bootstrap 3 components from this list (Links to an external site.). Examples include:
